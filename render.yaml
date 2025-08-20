@@ -1,0 +1,6 @@
+services:
+- type: web
+name: FinalAutomotor-code
+env: python
+buildcommand: pip install -r requirements.txt
+startcommand: streamlit run app.py
