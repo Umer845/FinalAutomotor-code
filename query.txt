@@ -1,0 +1,43 @@
+select * from motor_insurance_data
+
+
+CREATE TABLE motor_insurance_data (
+ insurance_type  VARCHAR(100),
+ 
+);
+
+CREATE TABLE IF NOT EXISTS premium_results (
+                id SERIAL PRIMARY KEY,
+                vehicle_make VARCHAR(50),
+                vehicle_model VARCHAR(50),
+                vehicle_make_year INT,
+                sum_insured NUMERIC,
+                predicted_premium NUMERIC,
+                min_premium_rate NUMERIC,
+                actual_premium_rate NUMERIC,
+                max_premium_rate NUMERIC,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+				historical_min_rate NUMERIC(10,4),
+			    historical_MAX_rate NUMERIC(10,4),
+		        historical_avg_rate NUMERIC(10,4),
+		        vehicle_age INT NOT NULL,
+		        risk_profile VARCHAR(50) NOT NULL,
+		        predicted_rate NUMERIC(10,4),
+ 		        final_premium NUMERIC(15,2),
+ 				final_rate NUMERIC(10,4),
+ 			    prediction_source VARCHAR(100)
+            );
+
+SELECT * FROM premium_results
+
+ALTER TABLE premium_results 
+ADD COLUMN historical_min_rate NUMERIC(10,4),
+ADD COLUMN historical_MAX_rate NUMERIC(10,4),
+ADD COLUMN historical_avg_rate NUMERIC(10,4),
+ADD COLUMN vehicle_age INT NOT NULL,
+ADD COLUMN risk_profile VARCHAR(50) NOT NULL,
+ADD COLUMN  predicted_rate NUMERIC(10,4),
+ADD COLUMN final_premium NUMERIC(15,2),
+ADD COLUMN final_rate NUMERIC(10,4),
+ADD COLUMN prediction_source VARCHAR(100)
+			
